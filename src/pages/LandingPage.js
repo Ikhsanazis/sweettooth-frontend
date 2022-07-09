@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row} from "react-bootstrap";
 import HomeNavbar from "../components/molecules/HomeNavbar";
 import Discover from "../components/molecules/Discover";
 import NewRecipe from "../components/molecules/NewRecipe";

@@ -39,6 +39,12 @@
   width: 100%;
   height: 400px;
 }
+.backlayer4{
+  background-color: #422C23;
+  width: 100%;
+  height: 100px;
+  margin-top: 350px;
+}
 
 .discover{
   position: absolute;
@@ -66,5 +72,13 @@
 }
 
 .menuimage{
+  margin-top: 100px;
+}
+
+.userprofile{
+  margin-top: 100px;
+}
+
+.collection{
   margin-top: 100px;
 }

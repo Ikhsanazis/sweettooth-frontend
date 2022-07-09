@@ -1,31 +1,33 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
+import UserProfile from "../components/molecules/UserProfile";
+import Footer2 from "../components/molecules/Footer2";
+import Collection from "../components/molecules/Collection";
+import HomeNavbar from "../components/molecules/HomeNavbar";
 
 function App() {
   return (
     <div className="App">
-      <Container>
-        <div className="mx-auto">
-          <Row className="">
-            <div className="photoprofile mx-auto"></div>
-            <h3 className="text-center mt-3">Ikhsan Azis</h3>
-          </Row>
-        </div>
-        <div className="savedmenu">
-          <Row>
-            <p className="link mt-5">
-              <a href="#">My Recipe</a>
-              <a href="#">Saved Menu</a> <a href="#">Liked</a>
-            </p>
-          </Row>
-        </div>
+      <Container fluid>
+        <Row>
+            <HomeNavbar />
+        </Row>
+        <Row>
+          <div className="userprofile ">
+            <UserProfile />
+          </div>
+        </Row>
+        <Row>
+          <div class="collection">
+            <Collection />
+          </div>
+        </Row>
+        <Row>
+          <div class="backlayer4">
+            <Footer2 />
+          </div>
+        </Row>
       </Container>
-      <div class="backlayer4">
-        <p class="layer4 text-center ">
-          <a href="#">Product</a> <a href="#">Company</a>{" "}
-          <a href="#">Learn More</a> <a href="#">Get in Touch</a>
-        </p>
-      </div>
     </div>
   );
 }

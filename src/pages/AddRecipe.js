@@ -1,41 +1,27 @@
 import React from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
+
+import FormAddRecipe from "../components/organism/FormAddRecipe";
+import Footer from "../components/molecules/Footer";
+import HomeNavbar from "../components/molecules/HomeNavbar";
 
 function App() {
   return (
     <div className="App">
       <Container fluid>
-        <div class="col-8 mx-auto ">
-          <textarea
-            class="form-control text-center mb-3"
-            id="exampleFormControlTextarea1"
-            rows="6"
-            placeholder="Image"
-          ></textarea>
-          <input
-            type="text"
-            class="form-control mb-3"
-            id="title"
-            placeholder="Title"
-          />
-          <textarea
-            class="form-control mb-3"
-            id="exampleFormControlTextarea1"
-            rows="6"
-            placeholder="Ingredients"
-          ></textarea>
-          <input
-            type="text"
-            class="form-control mb-3"
-            id="vid"
-            placeholder="Video"
-          />
-          <div class="mb-3 col-6 mx-auto ">
-            <button type="button" class="btn button col-12 btn-lg ">
-              Send
-            </button>
+        <Row>
+          <HomeNavbar className="navbar" />
+        </Row>
+        <Row>
+          <div class="col-8 mx-auto mt-5">
+            <FormAddRecipe />
           </div>
-        </div>
+        </Row>
+        <Row>
+          <div class="backlayer3 ">
+            <Footer />
+          </div>
+        </Row>
       </Container>
     </div>
   );
