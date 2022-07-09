@@ -9,6 +9,7 @@ import Login from "./pages/Login";
 import LandingPage from "./pages/LandingPage";
 import DetailRecipe from "./pages/DetailRecipe";
 import AddRecipe from "./pages/AddRecipe";
+import Profile from "./pages/Profile";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
           <Route path="LandingPage" element={<LandingPage />} />
           <Route path="DetailRecipe" element={<DetailRecipe />} />
           <Route path="AddRecipe" element={<AddRecipe />} />
+          <Route path="Profile" element={<Profile />} />
         </Route>
       </Routes>
     </BrowserRouter>
