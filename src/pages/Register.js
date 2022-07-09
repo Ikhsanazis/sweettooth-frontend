@@ -1,5 +1,7 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import FormHeader from "../components/atoms/FormHeader";
+import InputText from "../components/atoms/inputText";
 
 function App() {
   return (
@@ -10,19 +12,8 @@ function App() {
             <div className="backgroundlayer"></div>
           </Col>
           <Col className="bgright ">
-            <h2 class="judul ">Let's Get Started!</h2>
-            <p class="text-center">Create new account to access all features</p>
-            <div class="mb-3 col-8 mx-auto ">
-              <label for="inputname" class="form-label">
-                Username
-              </label>
-              <input
-                type="text"
-                class="form-control form-control-lg col-4"
-                id="inputEmail"
-                placeholder="name"
-              ></input>
-            </div>
+            <FormHeader title={"Let's Get Started "} desc={"Create new account to access all features"}/>
+            <InputText label={"USERNAME"}/>
             <div class="mb-3 col-8 mx-auto">
               <label for="inputEmail" class="form-label">
                 Email address

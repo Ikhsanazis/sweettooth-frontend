@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
+import FormHeader from "../components/atoms/FormHeader";
 
 function App() {
   return (
@@ -10,8 +11,7 @@ function App() {
             <div className="backgroundlayer"></div>
           </Col>
           <Col className="bgright2 ">
-            <h2 class="judul2">Welcome!</h2>
-            <p class="text-center">Login into your existing account</p>
+          <FormHeader title={"Welcome ! "} desc={"Login into your existing account"}/>
             <div class="formulir mb-3 col-8 mx-auto ">
               <label for="inputEmail" class="form-label">
                 Email address
