@@ -1,38 +1,140 @@
-.App {
+.backgroundlayer{
+  background-color: #422C23;
+  width: 50%;
+  height: 1000px;
+  position: absolute;
+  left: 0%;
+  opacity: 0.5;
+}
+
+.bgleft{
+  background-image: url(../background.jpg);
+  width: 100%;
+  height: 1000px;
+  left: 0px;
+  background-size: cover;
+}
+
+.bgright{
+  background-color: #E6E6E6;
+}
+
+.button{
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color:#201711;
+  border-color: #201711;
   color: white;
+  border-radius: 6px;;
 }
 
-.App-link {
-  color: #61dafb;
+.form-check-input:checked{
+  background-color: #201711;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.judul{
+  text-align: center;
+  margin-top: 80px;
 }
+
+.backlayer1{
+  background-color: #201711;
+  height: 100px;
+  width: 30%;
+  position: relative;
+  left: 70%;
+  height: 800px;
+}
+
+.backlayer2{
+  background-color: #201711;
+  height: 100px;
+  width: 30%;
+  position: absolute;
+  top:2900px;
+  left: 0;
+  height: 500px;
+}
+
+.backlayer3{
+  background-color: #201711;
+  text-align: center;
+  color:white;
+  height: 100px;
+  width: 100%;
+  margin-top: 1500px;
+  left: 0;
+  height: 500px;
+}
+
+.search{
+  position: absolute;
+  left: 15%;
+  top: 2200px;
+}
+.searchimage{
+  background-image: url(../donat.jpg);
+  height: 400px;
+  width: 500px;
+  background-repeat: no-repeat;
+}
+
+.menuimage{
+  background-image: url(../donat.jpg);
+  height: 400px;
+  width: 500px;
+  background-repeat: no-repeat;
+}
+
+.navbar{
+  position: absolute;
+}
+
+.newrecipe{
+  position: absolute;
+  left: 15%;
+  top: 3050px;
+}
+
+.titlenew{
+  position: absolute;
+  top: 2780px;
+  left: 30px;
+  border-left: 10px solid #201711;
+}
+
+.titlepopular{
+  position: absolute;
+  top: 3550px;
+  left: 30px;
+  border-left: 10px solid #201711;
+}
+
+.popular{
+  position: absolute;
+  top: 3650px;
+}
+
+.popularimage{
+  background-image: url(../donat.jpg);
+  height: 300px;
+  width: 350px;
+  background-repeat: no-repeat;
+}
+
+.last a{
+  color: white;
+  justify-content: center;
+}
+
+.last{
+  margin-top: 150px;
+}
+
+.mt{
+  margin-top: 200px;
+}
+
+.App{
+  background-color: #E6E6E6;
+}
+
