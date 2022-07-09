@@ -12,7 +12,7 @@ function App() {
           </Col>
           <Col className="bgright ">
             <h2 class="judul ">Let's Get Started!</h2>
-            <p class="text text-center">
+            <p class="text-center">
               Create new account to access all features
             </p>
             <div class="mb-3 col-8 mx-auto ">
@@ -87,21 +87,9 @@ function App() {
             <div className="backgroundlayer"></div>
           </Col>
           <Col className="bgright2 ">
-            <h2 class="judul ">Let's Get Started!</h2>
-            <p class="text text-center">
-              Create new account to access all features
+            <h2 class="judul2">Welcome!</h2>
+            <p class="text-center">Login into your existing account
             </p>
-            <div class="formulir mb-3 col-8 mx-auto ">
-              <label for="inputname" class="form-label">
-                Username
-              </label>
-              <input
-                type="text"
-                class="form-control form-control-lg col-4"
-                id="inputEmail"
-                placeholder="name"
-              ></input>
-            </div>
             <div class="formulir mb-3 col-8 mx-auto ">
               <label for="inputEmail" class="form-label">
                 Email address
@@ -125,17 +113,6 @@ function App() {
               ></input>
             </div>
             <div class="formulir mb-3 col-8 mx-auto ">
-              <label for="phoneNumber" class="form-label">
-                Phone Number
-              </label>
-              <input
-                type="phonenumber"
-                class="form-control form-control-lg"
-                id="phoneNumber"
-                placeholder="08xxxxxxx"
-              ></input>
-            </div>
-            <div class="formulir mb-3 col-8 mx-auto ">
               <input
                 class="form-check-input"
                 type="checkbox"
@@ -148,7 +125,7 @@ function App() {
             </div>
             <div class="formulir mb-3 col-8 mx-auto ">
               <button type="button" class="button col-12 btn-lg ">
-                Register Account
+                Login
               </button>
               <p class="forget text-center">
                 Already have an account?<a href="#">Login here</a>
@@ -158,7 +135,7 @@ function App() {
         </Row>
       </Container>
       <Container fluid>
-        <Row className="cobacek">
+        <Row className="">
           <div class="backlayer1"></div>
           <nav class="navbar  navbar-expand-lg navbar-light bg-transparran">
             <a class="navbar-brand" href="#">
@@ -216,19 +193,19 @@ function App() {
             </Row>
           </div>
           <h2 className="titlepopular">Popular Recipe</h2>
-          <div className="popular">
-            <Row className="mx-5">
-              <Col className="popularimage">COLUMN 1</Col>
-              <Col className="popularimage">COLUMN 1</Col>
-              <Col className="popularimage">COLUMN 1</Col>
+          <div className="popular  ">
+            <Row className="mb-5 ">
+              <Col className="popularimage mx-3"><p className="text ">COLUMN 1</p></Col>
+              <Col className="popularimage mx-3"><p className="text ">COLUMN 1</p></Col>
+              <Col className="popularimage mx-3"><p className="text ">COLUMN 1</p></Col>
             </Row>
-            <Row className="mx-5">
-              <Col className="popularimage">COLUMN 1</Col>
-              <Col className="popularimage">COLUMN 1</Col>
-              <Col className="popularimage">COLUMN 1</Col>
+            <Row className="mb-5">
+              <Col className="popularimage mx-3"><p className="text ">COLUMN 1</p></Col>
+              <Col className="popularimage mx-3"><p className="text ">COLUMN 1</p></Col>
+              <Col className="popularimage mx-3"><p className="text ">COLUMN 1</p></Col>
             </Row>
           </div>
-          <div class="backlayer3">
+          <div class="backlayer3 ">
             <Row className="mt">
               <h1>Eat, Cook, Repeat</h1>
               <p>Share your best recipe by uploading here !</p>
@@ -303,7 +280,7 @@ function App() {
         </div>
       </Container>
       <Container fluid>
-        <div class="commentsection col-8 mx-auto ">
+        <div class="col-8 mx-auto ">
           <textarea
             class="form-control text-center mb-3"
             id="exampleFormControlTextarea1"
@@ -336,18 +313,27 @@ function App() {
         </div>
       </Container>
       <Container>
-        <div className="profiluser">
-          <h3>Ikhsan Azis</h3>
+        <div className="mx-auto">
+          <Row className="">
+            <div className="photoprofile mx-auto"></div>
+            <h3 className="text-center mt-3">Ikhsan Azis</h3>
+          </Row>
         </div>
         <div className="savedmenu">
           <Row>
-            <p className="myrecipe">
+            <p className="link mt-5">
               <a href="#">My Recipe</a>
               <a href="#">Saved Menu</a> <a href="#">Liked</a>
             </p>
           </Row>
         </div>
       </Container>
+      <div class="backlayer4">
+          <p class="layer4 text-center ">
+            <a href="#">Product</a> <a href="#">Company</a>{" "}
+            <a href="#">Learn More</a> <a href="#">Get in Touch</a>
+          </p>
+      </div>
     </div>
   );
 }
