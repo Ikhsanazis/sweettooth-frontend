@@ -1,17 +1,17 @@
-// import React from "react";
+import React from "react";
 
-// // atoms
-// import InputText from "../atoms/InputText";
-// import RegisButton from "../atoms/RegisterButton";
+// atoms
+import InputText from "../atoms/InputText";
+import RegisButton from "../atoms/RegisterButton";
 
-// function FormRegister() {
-//   return (
-//     <>
-//       <InputText label="Username" />
+function FormRegister() {
+  return (
+    <>
+      <InputText label="Username" />
 
-//       <RegisButton />
-//     </>
-//   );
-// }
+      <RegisButton />
+    </>
+  );
+}
 
-// export default FormRegister;
+export default FormRegister;
