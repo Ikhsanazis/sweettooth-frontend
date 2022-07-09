@@ -4,18 +4,14 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // import pages
-import Profile from "./pages/Register";
-import NotFound from "./pages/NotFound";
-import Home from "./pages/Home";
+import Register from "./pages/Register";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/">
-          <Route index element={<Home />} />
-          <Route path="profile" element={<Profile />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="Register" element={<Register />} />
         </Route>
       </Routes>
     </BrowserRouter>
