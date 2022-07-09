@@ -1,15 +1,15 @@
 import React from "react";
 
-function RegisButton() {
+function RegisButton(props) {
+  const { label: labelInput } = props;
+
   return (
     <>
       <div class="mb-3 col-8 mx-auto">
         <button type="button" class="button col-12 btn-lg ">
-          Register Account
+          {labelInput}
         </button>
-        <p class="forget text-center">
-          Already have an account?<a href="#">Login here</a>
-        </p>
+
       </div>
       ;
     </>

@@ -26,7 +26,10 @@ function FormRegister() {
           I agree to terms & conditions
         </label>
       </div>
-      <RegisButton />
+      <RegisButton label={"Register Account"} />
+      <p class="forget text-center">
+        Already have an account?<a href="#">Login here</a>
+      </p>
     </>
   );
 }
