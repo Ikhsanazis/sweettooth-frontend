@@ -21,6 +21,18 @@ function FormRegister() {
       {/* Input Phone */}
       <InputText label="Phone Number" />
 
+      <div class="mb-3 col-8 mx-auto">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
+          id="flexCheckDefault"
+        ></input>
+        <label class="form-check-label" for="flexCheckDefault">
+          I agree to terms & conditions
+        </label>
+      </div>
+
       {/* Button */}
       <RegisButton />
     </>

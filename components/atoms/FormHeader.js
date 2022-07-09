@@ -5,9 +5,8 @@ function FormHeader(props) {
   const { title, desc } = props;
   return (
     <>
-      <h5 className="card-title">{title}</h5>
-      <p className="card-description">{desc}</p>
-      <hr />
+      <h2 class="judul ">{title}</h2>
+      <p class="text-center">{desc}</p>
     </>
   );
 }

@@ -6,14 +6,17 @@ function InputText(props) {
 
   return (
     <>
-      <Row className="mb-3">
-        <Col lg={3}>
-          <p className="text-right mt-2 text-label">{labelInput}</p>
-        </Col>
-        <Col lg={8}>
-          <Form.Control size="lg" type="text" />
-        </Col>
-      </Row>
+      <div class="mb-3 col-8 mx-auto ">
+        <label for="inputname" class="form-label">
+          {labelInput}
+        </label>
+        <input
+          type="text"
+          class="form-control form-control-lg col-4"
+          id="inputEmail"
+          placeholder="name"
+        ></input>
+      </div>
     </>
   );
 }

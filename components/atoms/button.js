@@ -1,6 +1,6 @@
 import React from "react";
 
-function regisbutton() {
+function RegisButton() {
   return (
     <>
       <div class="mb-3 col-8 mx-auto">
@@ -15,4 +15,4 @@ function regisbutton() {
   );
 }
 
-export default regisbutton;
+export default RegisButton;

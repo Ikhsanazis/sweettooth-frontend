@@ -16,65 +16,8 @@ function Register() {
             <div className="backgroundlayer"></div>
           </Col>
           <Col className="bgright ">
-            <h2 class="judul ">Let's Get Started!</h2>
-            <p class="text-center">
-              Create new account to access all features
-            </p>
-            <div class="mb-3 col-8 mx-auto ">
-              <label for="inputname" class="form-label">
-                Username
-              </label>
-              <input
-                type="text"
-                class="form-control form-control-lg col-4"
-                id="inputEmail"
-                placeholder="name"
-              ></input>
-            </div>
-            <div class="mb-3 col-8 mx-auto">
-              <label for="inputEmail" class="form-label">
-                Email address
-              </label>
-              <input
-                type="email"
-                class="form-control form-control-lg"
-                id="inputEmail"
-                placeholder="name@example.com"
-              ></input>
-            </div>
-            <div class="mb-3 col-8 mx-auto">
-              <label for="inputPassword" class="form-label">
-                Password
-              </label>
-              <input
-                type="password"
-                class="form-control form-control-lg"
-                id="inputPassword"
-                placeholder="password"
-              ></input>
-            </div>
-            <div class="mb-3 col-8 mx-auto">
-              <label for="phoneNumber" class="form-label">
-                Phone Number
-              </label>
-              <input
-                type="phonenumber"
-                class="form-control form-control-lg"
-                id="phoneNumber"
-                placeholder="08xxxxxxx"
-              ></input>
-            </div>
-            <div class="mb-3 col-8 mx-auto">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="flexCheckDefault"
-              ></input>
-              <label class="form-check-label" for="flexCheckDefault">
-                I agree to terms & conditions
-              </label>
-            </div>
+            <FormHeader/>
+            <FormRegister></FormRegister>
           </Col>
         </Row>
       </Container>
@@ -82,4 +25,4 @@ function Register() {
   );
 }
 
-export default FormRegister;
+export default Register;
