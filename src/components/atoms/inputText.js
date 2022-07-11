@@ -5,7 +5,7 @@ function InputText(props) {
 
   return (
     <>
-      <div class="mb-3 col-8 mx-auto ">
+      <div className="mb-3 col-8 mx-auto ">
         <label for="input" class="form-label">
           {labelInput}
         </label>

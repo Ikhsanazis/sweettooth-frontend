@@ -5,8 +5,8 @@ function FormHeader(props) {
   const { title, desc } = props;
   return (
     <>
-      <h2 class="judul text-center">{title}</h2>
-      <p class="text-center">{desc}</p>
+      <h2 className="judul text-center">{title}</h2>
+      <p className="text-center">{desc}</p>
     </>
   );
 }
