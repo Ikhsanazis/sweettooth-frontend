@@ -1,13 +1,11 @@
 import React from "react";
-import axios from "axios";
 import { Container, Form, Button, Row, Col, Alert } from "react-bootstrap";
+import axios from "axios";
 
+import FormHeader from "../components/atoms/FormHeader";
+import FormLogin from "../components/organism/FormLogin";
 
-// atoms
-import InputText from "../atoms/inputText";
-import RegisButton from "../atoms/RegisterButton";
-
-function FormLogin() {
+function Loginexample() {
   const [isError, setIsError] = React.useState(false);
   const [errorMsg, setErrorMsg] = React.useState("");
 
@@ -85,15 +83,21 @@ function FormLogin() {
           </Form>
         </Col>
       </Row>
+      <Row>
+        <Col className="bgleft">
+          <div className="backgroundlayer"></div>
+        </Col>
+        <Col className="bgright2 ">
+          <FormHeader
+            title={"Welcome ! "}
+            desc={"Login into your existing account"}
+          />
+          <FormLogin />
+        </Col>
+      </Row>
     </Container>
-  );
-  return (
-    <>
-      <InputText label={"Email"} type={"email"} placeholder="Email@gmail.com" />
-      <InputText label={"Password"} type={"password"} placeholder="Password" />
-      <RegisButton/>
-    </>
   );
 }
 
-export default FormLogin;
+export default Loginexample;
+

@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 // import pages
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import Loginexample from "./pages/Loginexample";
 import LandingPage from "./pages/LandingPage";
 import DetailRecipe from "./pages/DetailRecipe";
 import AddRecipe from "./pages/AddRecipe";
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="/">
           <Route path="Register" element={<Register />} />
           <Route path="Login" element={<Login />} />
+          <Route path="Loginexample" element={<Loginexample />} />
           <Route path="LandingPage" element={<LandingPage />} />
           <Route path="DetailRecipe" element={<DetailRecipe />} />
           <Route path="AddRecipe" element={<AddRecipe />} />
