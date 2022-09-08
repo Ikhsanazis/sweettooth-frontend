@@ -15,9 +15,7 @@
   background-size: cover;
 }
 
-.App{
-  background-color: #d6c2b3 ;
-}
+
 .navbar{
   position: absolute;
 }
@@ -49,7 +47,7 @@
 .discover{
   position: absolute;
   top: 200px;
-  left: 20%;
+  
 }
 
 .newrecipe{

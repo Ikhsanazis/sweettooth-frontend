@@ -64,7 +64,8 @@ function FormLoginexample() {
               />
             </Form.Group>
             <Button
-              variant="primary"
+            className="w-100"
+              variant="warning"
               type="submit"
               disabled={isLoading}
               onClick={handleLogin}
