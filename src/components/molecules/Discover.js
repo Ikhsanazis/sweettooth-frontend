@@ -5,7 +5,7 @@ import imageLanding from "../../images/homepict.png";
 function Discover() {
   return (
     <>
-      <div className="search d-flex justify-content-center">
+      <div className="search d-flex justify-content-center ">
         <Row className="col-8 ">
           <Col class="col">
             <h1 class="title">

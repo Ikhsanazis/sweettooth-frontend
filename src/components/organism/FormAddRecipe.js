@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 
 function FormAddRecipe() {
   return (
@@ -28,9 +29,16 @@ function FormAddRecipe() {
         placeholder="Video"
       />
       <div class="mb-3 col-6 mx-auto ">
-        <button type="button" class="btn button col-12 btn-lg ">
+        <Button
+          className="w-100"
+          variant="warning"
+          type="submit"
+          // disabled={isLoading}
+          // onClick={handleLogin}
+        >
+          {/* {isLoading ? "Loading..." : "Login"} */}
           Send
-        </button>
+        </Button>
       </div>
     </>
   );

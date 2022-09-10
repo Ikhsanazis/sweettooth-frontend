@@ -1,11 +1,19 @@
 import React from "react";
+import { Button } from "react-bootstrap";
 
 function Video(props) {
   return (
     <>
-      <button class="button " type="button">
+      <Button
+        className="w-100"
+        variant="warning"
+        type="submit"
+        // disabled={isLoading}
+        // onClick={handleLogin}
+      >
+        {/* {isLoading ? "Loading..." : "Login"} */}
         {props.title}
-      </button>
+      </Button>
     </>
   );
 }

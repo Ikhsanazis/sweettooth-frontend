@@ -5,7 +5,7 @@ function HeaderText(props) {
   const { title } = props;
   return (
     <>
-        <h2>{title}</h2>
+        <h3 className=" ">{title}</h3>
     </>
   );
 }

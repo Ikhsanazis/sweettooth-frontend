@@ -24,7 +24,8 @@ function Loginexample() {
         setIsError(false);
 
         // SET TOKEN
-        localStorage.setItem("token", res?.data);
+        localStorage.setItem("token", res?.data?.token);
+        localStorage.setItem("user", JSON.stringify(res?.data?.user));
         window.location.href = "/";
       })
       .catch((err) => {
@@ -37,20 +38,22 @@ function Loginexample() {
   };
 
   return (
-    <Container fluid>
+    <Container fluid className="h-100">
       <Row>
         <Col className="bgleft">
           <div className="backgroundlayer"></div>
         </Col>
-        <Col className="bgright2 ">
+        <Col className="bgright2  d-flex flex-column ">
+          <div className="row rightside">
             <Col>
               {isError ? <Alert variant="danger">{errorMsg}</Alert> : null}
             </Col>
-          <FormHeader
-            title={"Welcome ! "}
-            desc={"Login into your existing account"}
-          />
-          <FormLoginexample />
+            <FormHeader 
+              title={"Welcome ! "}
+              desc={"Login into your existing account"}
+            />
+            <FormLoginexample />
+          </div>
         </Col>
       </Row>
     </Container>

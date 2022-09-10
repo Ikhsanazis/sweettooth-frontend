@@ -19,7 +19,7 @@ function App() {
         </Row>
         <Row>
           <div class="backlayer3 ">
-            <Footer />
+            <Footer className="" />
           </div>
         </Row>
       </Container>

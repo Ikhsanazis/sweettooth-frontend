@@ -1,8 +1,10 @@
 import React from "react";
+import { Button } from "react-bootstrap";
+
 function Comment() {
   return (
     <>
-      <div class="mb-3 col-12 mx-auto bg-primary">
+      <div class="mb-3 col-12 mx-auto ">
         <textarea
           type="text"
           class="form-control form-control-lg col-4"
@@ -12,12 +14,18 @@ function Comment() {
         ></textarea>
       </div>
       <div class="mb-3 col-6 mx-auto ">
-        <button type="button" class="btn button col-12 btn-lg ">
+        <Button
+          className="w-100"
+          variant="warning"
+          type="submit"
+          // disabled={isLoading}
+          // onClick={handleLogin}
+        >
+          {/* {isLoading ? "Loading..." : "Login"} */}
           Send
-        </button>
+        </Button>
       </div>
       <h3>Comment</h3>
-
     </>
   );
 }

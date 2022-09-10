@@ -5,7 +5,7 @@ import imageLanding from "../../images/homepict.png";
 function NewRecipe() {
   return (
     <>
-      <div className="search ">
+      <div className="search  ">
         <Row className="col-8">
           <Col className="searchimage">
           <img

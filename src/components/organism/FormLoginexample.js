@@ -38,8 +38,8 @@ function FormLoginexample() {
 
   return (
     <Container fluid>
-      <Row className="justify-content-md-center flex-center-vertical h-100">
-        <Col lg={8}>
+      <Row className="justify-content-md-center flex-center-vertical">
+        <Col lg={8} md={8} sm={12}>
           {isError ? <Alert variant="danger">{errorMsg}</Alert> : null}
 
           <Form onSubmit={(e) => e.preventDefault()}>
@@ -64,7 +64,7 @@ function FormLoginexample() {
               />
             </Form.Group>
             <Button
-            className="w-100"
+              className="w-100"
               variant="warning"
               type="submit"
               disabled={isLoading}

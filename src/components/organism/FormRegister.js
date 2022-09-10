@@ -1,10 +1,42 @@
 import React from "react";
-
+import axios from "axios"
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 // atoms
 import InputText from "../atoms/inputText";
 import RegisButton from "../atoms/RegisterButton";
 
 function FormRegister() {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      window.location.href = "/";
+    }
+  }, []);
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+      await axios.post(process.env.REACT_APP_URL + `auth/register`, {
+        username,
+        email,
+        password,
+        phone,
+      });
+      navigate("/login");
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response);
+      }
+    }
+  };
+
   return (
     <>
       <InputText label={"Username"} type={"text"} placeholder="Username" />
