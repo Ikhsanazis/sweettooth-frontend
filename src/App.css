@@ -80,11 +80,15 @@
 }
 
 .userprofile{
-  margin-top: 100px;
+  margin-top: 50px;
 }
 
 .collection{
-  margin-top: 100px;
+  margin-top: 20px;
+}
+
+.tabcollection{
+  margin-bottom: 100px;
 }
 
 .rightside{
@@ -97,7 +101,7 @@
 }
 .footer2{
   background-color: #EEC302;
-  height: 100px;
+  height: 60px;
 }
 
 .tabs{

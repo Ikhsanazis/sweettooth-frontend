@@ -1,40 +1,73 @@
 import React from "react";
 import axios from "axios";
 import { Container, Form, Button, Row, Col, Alert } from "react-bootstrap";
+import { connect } from "react-redux";
+import * as Type from "../../redux/auth/type";
+import { useSelector, useDispatch } from "react-redux";
 
-// atoms
-import RegisButton from "../atoms/RegisterButton";
-
-function FormLoginexample() {
+function FormLogin() {
+  const dispatch = useDispatch();
+  const { auth } = useSelector((state) => state);
   const [isError, setIsError] = React.useState(false);
   const [errorMsg, setErrorMsg] = React.useState("");
 
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [isLoading, setIsLoading] = React.useState(false);
+  const [error, setError] = React.useState({
+    isError: false,
+    errorMsg: "",
+  });
 
   const handleLogin = () => {
-    // setIsLoading(true);
-    axios
-      .post("http://localhost:8000/login", {
-        email: email,
-        password: password,
-      })
-      .then((res) => {
-        setIsError(true);
-
-        // SET TOKEN
-        localStorage.setItem("token", res?.data);
-        window.location.href = "/LandingPage";
-      })
-      .catch((err) => {
-        setIsError(true);
-        setErrorMsg(err?.response?.data);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+    setIsLoading(true);
+    setTimeout(() => {
+      axios
+        .post("http://localhost:8000/login", { email, password })
+        .then((respose) => {
+          dispatch({
+            type: Type.SET_AUTH,
+            payload: {
+              token: respose?.data?.token,
+              user: respose?.data?.user,
+            },
+          });
+          window.location.href = "/LandingPage";
+        })
+        .catch(({ response }) => {
+          const message = response?.data?.message;
+          setError({ isError: true, errorMsg: message });
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    }, 1000);
   };
+
+  console.log(email, password);
+
+  // const handleLogin = () => {
+  //   // setIsLoading(true);
+  //   axios
+  //     .post("http://localhost:8000/login", {
+  //       email: email,
+  //       password: password,
+  //     })
+  //     .then((res) => {
+  //       setIsError(true);
+
+  //       // SET TOKEN
+  //       localStorage.setItem("token", res?.data);
+  //       window.location.href = "/LandingPage";
+  //     })
+  //     .catch((err) => {
+  //       setIsError(true);
+  //       setErrorMsg(err?.response?.data);
+  //     })
+  //     .finally(() => {
+  //       setIsLoading(false);
+  //     });
+  // };
 
   return (
     <Container fluid>
@@ -70,7 +103,7 @@ function FormLoginexample() {
               disabled={isLoading}
               onClick={handleLogin}
             >
-              {isLoading ? "Loading..." : "Login"}
+              {isLoading ? "Loading..." : "Login"}{" "}
             </Button>
           </Form>
         </Col>
@@ -79,4 +112,4 @@ function FormLoginexample() {
   );
 }
 
-export default FormLoginexample;
+export default FormLogin;

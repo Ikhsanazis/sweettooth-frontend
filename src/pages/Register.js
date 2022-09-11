@@ -3,7 +3,7 @@ import { Container, Form, Button, Row, Col, Alert } from "react-bootstrap";
 import axios from "axios";
 
 import FormHeader from "../components/atoms/FormHeader";
-import FormLoginexample from "../components/organism/FormLoginexample";
+import FormLoginexample from "../components/organism/FormRegister";
 
 function Loginexample() {
   const [isError, setIsError] = React.useState(false);

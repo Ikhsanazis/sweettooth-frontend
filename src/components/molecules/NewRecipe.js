@@ -15,13 +15,13 @@ function NewRecipe() {
               alt=""
             />
           </Col>
-          <Col class="col">
-            <h1 class="title">
+          <Col className="col">
+            <h1 className="title">
               NewRecipe Recipe <br />& Delicious Food
             </h1>
-            <form class="form">
-              <input class="form-control " type="search" placeholder="Search" />
-              <button class="btn btn-outline-success " type="submit">
+            <form className="form">
+              <input className="form-control " type="search" placeholder="Search" />
+              <button className="btn btn-outline-success " type="submit">
                 Search
               </button>
             </form>

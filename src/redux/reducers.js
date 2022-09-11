@@ -1,9 +1,20 @@
 import { combineReducers } from "redux";
-import { authReducer } from "./reducers/authReducer";
+import { persistReducer } from "redux-persist";
+import session from "redux-persist/lib/storage/session";
+// import session from "redux-persist/lib/storage";
+// import reducer
+import auth from "./auth";
+
+const persistConfig = {
+  key: "root",
+  storage: session,
+  whitelist: ["auth"],
+};
 
 const rootReducer = combineReducers({
-  auth: authReducer,
-
+  auth,
 });
 
-export default rootReducer;
+const persistedReducer = persistReducer(persistConfig, rootReducer);
+
+export default persistedReducer;

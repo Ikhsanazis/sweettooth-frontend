@@ -6,7 +6,7 @@ function Footer2() {
     <>
       <div className="footer2 fixed-bottom">
           <div className="d-flex justify-content-center align-items-center h-100">
-              <small class="text-center text-white  ">
+              <small className="text-center text-white  ">
                 <a className="text-white" href="/">
                   Product
                 </a>{" "}

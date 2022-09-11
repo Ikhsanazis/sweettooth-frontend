@@ -3,68 +3,65 @@ import { Row, Col, Card } from "react-bootstrap";
 import { useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-function NewRecipe() {
-  const [popularRecipe, setPopularRecipe] = React.useState([]);
-  const [loadPopular, setLoadPopular] = React.useState(true);
+import ReactPaginate from "react-paginate";
+
+function NewRecipe(props) {
+  const { data } = props;
+  const [currentItems, setCurrentItems] = React.useState([]);
+  const [pageCount, setPageCount] = React.useState(0);
+  const [itemOffset, setItemOffset] = React.useState(0);
+  const itemsPerPage = 6;
 
   useEffect(() => {
-    getPopular();
-  }, []);
+    const endOffset = itemOffset + itemsPerPage;
+    setCurrentItems(data.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(data.length / itemsPerPage));
+  }, [itemOffset, itemsPerPage, data]);
 
-  const getPopular = () => {
-    axios
-      .get("http://localhost:8000/popular")
-      .then((res) => {
-        setPopularRecipe(res?.data?.data);
-        setLoadPopular(false);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => {
-        setLoadPopular(false);
-      });
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % data.length;
+    setItemOffset(newOffset);
   };
-  console.log(popularRecipe);
+  console.log(data);
   return (
     <>
-      {/* <Row xs={1} md={3} className="g-4 mb-5">
-      {Array.from({ length: 6 }).map((_, idx) => (
-        <Col>
-          <Card>
-            <Card.Img variant="top" src="holder.js/100px160" />
-            <Card.Body>
-              <Card.Title>Card title</Card.Title>
-              <Card.Text>
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-      ))}
-    </Row> */}
-      <Row xs={1} md={4} className="g-4 mb-5">
-        {popularRecipe?.map((item) => (
+      <Row xs={1} md={3} className="g-4 mb-5">
+        {currentItems?.map((item) => (
           <Col>
-            <Link to="/home" >
-            <Card>
-              <Card.Img
-                crossOrigin="anonymous"
-                variant="top"
-                src={`http://localhost:8000/images/${item?.image}`}
-                // width="100px"
-                height={300}
-              />
-              <Card.ImgOverlay className="d-flex align-items-end">
-                <Card.Title>{item?.name}</Card.Title>
-              </Card.ImgOverlay>
-            </Card>
+            <Link to={`/DetailRecipe/${item.recipe_id}`}>
+              <Card>
+                <Card.Img
+                  crossOrigin="anonymous"
+                  variant="top"
+                  src={`http://localhost:8000/images/${item?.image}`}
+                  // width="100px"
+                  height={300}
+                />
+                <Card.ImgOverlay className="d-flex align-items-end">
+                  <Card.Title>{item?.name}</Card.Title>
+                </Card.ImgOverlay>
+              </Card>
             </Link>
           </Col>
         ))}
       </Row>
+      <section className="  d-flex justify-content-center text-center">
+        <ReactPaginate
+          className="pagination"
+          breakLabel=""
+          nextLabel="..Next"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={6}
+          pageCount={pageCount}
+          previousLabel={"Prev.."} 
+          renderOnZeroPageCount={null}
+          containerClassName="pagination"
+          pageLinkClassName="page-num"
+          previousLinkClassName="page-num"
+          nextLinkClassName="page-num"
+          activeLinkClassName="active"
+        />
+      </section>
     </>
   );
 }

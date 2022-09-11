@@ -1,11 +1,12 @@
 import React from "react";
 import { Row } from "react-bootstrap";
 
-function Ingredients() {
+function Ingredients(props) {
+  const {data}=props
   return (
     <>
       <Row>
-        <p>Ingredient</p>
+        <p>{props?.ingredients}</p>
         <p>Ingredient</p>
         <p>Ingredient</p>
         <p>Ingredient</p>

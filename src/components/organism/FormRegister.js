@@ -1,69 +1,99 @@
 import React from "react";
-import axios from "axios"
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-// atoms
-import InputText from "../atoms/inputText";
-import RegisButton from "../atoms/RegisterButton";
+import axios from "axios";
+import { Container, Form, Button, Row, Col, Alert } from "react-bootstrap";
+import { connect } from "react-redux";
+import * as Type from "../../redux/auth/type";
+import { useSelector, useDispatch } from "react-redux";
 
-function FormRegister() {
-  const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [phone, setPhone] = useState("");
-  const navigate = useNavigate();
+function FormLogin() {
+  const dispatch = useDispatch();
+  const { auth } = useSelector((state) => state);
+  const [isError, setIsError] = React.useState(false);
+  const [errorMsg, setErrorMsg] = React.useState("");
+  const [username, setUsername] = React.useState("");
 
-  useEffect(() => {
-    if (localStorage.getItem("token")) {
-      window.location.href = "/";
-    }
-  }, []);
+  const [email, setEmail] = React.useState("");
+  const [password, setPassword] = React.useState("");
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [error, setError] = React.useState({
+    isError: false,
+    errorMsg: "",
+  });
 
-  const handleRegister = async (e) => {
-    e.preventDefault();
-    try {
-      await axios.post(process.env.REACT_APP_URL + `auth/register`, {
-        username,
-        email,
-        password,
-        phone,
-      });
-      navigate("/login");
-    } catch (error) {
-      if (error.response) {
-        console.log(error.response);
-      }
-    }
+  const handleRegister = () => {
+    setIsLoading(true);
+    setTimeout(() => {
+      axios
+        .post("http://localhost:8000/users/add", { username,email, password })
+        .then((respose) => {
+          dispatch({
+            type: Type.SET_AUTH,
+            payload: {
+              token: respose?.data?.token,
+              user: respose?.data?.user,
+            },
+          });
+          window.location.href = "/LandingPage";
+        })
+        .catch(({ response }) => {
+          const message = response?.data?.message;
+          setError({ isError: true, errorMsg: message });
+        })
+        .finally(() => {
+          setIsLoading(false);
+        });
+    }, 1000);
   };
 
+  console.log(email, password);
+
   return (
-    <>
-      <InputText label={"Username"} type={"text"} placeholder="Username" />
-      <InputText label={"Email"} type={"email"} placeholder="Email@gmail.com" />
-      <InputText label={"Password"} type={"password"} placeholder="Password" />
-      <InputText
-        label={"Phone Number"}
-        type={"text"}
-        placeholder="08xxxxxxxxx"
-      />
-      <div class="mb-3 col-8 mx-auto">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          value=""
-          id="flexCheckDefault"
-        ></input>
-        <label class="form-check-label" for="flexCheckDefault">
-          I agree to terms & conditions
-        </label>
-      </div>
-      <RegisButton label={"Register Account"} />
-      <p class="forget text-center">
-        Already have an account?<a href="#">Login here</a>
-      </p>
-    </>
+    <Container fluid>
+      <Row className="justify-content-md-center flex-center-vertical">
+        <Col lg={8} md={8} sm={12}>
+          {isError ? <Alert variant="danger">{errorMsg}</Alert> : null}
+
+          <Form onSubmit={(e) => e.preventDefault()}>
+            <Form.Group className="mb-3 " controlId="formBasicEmail">
+              <Form.Label>Username</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Username"
+                onChange={(e) => setUsername(e.target.value)}
+              />
+
+            </Form.Group>
+            <Form.Group className="mb-3 " controlId="formBasicEmail">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                type="email"
+                placeholder="Enter Email Address"
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </Form.Group>
+            <Button
+              className="w-100"
+              variant="warning"
+              type="submit"
+              disabled={isLoading}
+              onClick={handleRegister}
+            >
+              {isLoading ? "Loading..." : "Login"}{" "}
+            </Button>
+          </Form>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
-export default FormRegister;
+export default FormLogin;
