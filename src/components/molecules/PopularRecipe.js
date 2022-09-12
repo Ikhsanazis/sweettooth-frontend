@@ -49,13 +49,13 @@ function NewRecipe(props) {
         <ReactPaginate
           className="pagination"
           breakLabel=""
-          nextLabel="..Next"
+          nextLabel="next >"
           onPageChange={handlePageClick}
           pageRangeDisplayed={6}
           pageCount={pageCount}
-          previousLabel={"Prev.."} 
+          previousLabel={"< previous"} 
           renderOnZeroPageCount={null}
-          containerClassName="pagination"
+          containerClassName="pagination "
           pageLinkClassName="page-num"
           previousLinkClassName="page-num"
           nextLinkClassName="page-num"
