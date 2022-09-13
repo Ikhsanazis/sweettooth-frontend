@@ -12,7 +12,7 @@ function UserProfile() {
   console.log(auth);
   const user_id = auth?.profile?.id;
   const username = auth?.profile?.username;
-  const profile = `https://sweettooth-app.herokuapp.com/images/${auth?.profile?.image}`;
+  const profile = `http://localhost:8000/images/images/${auth?.profile?.image}`;
   console.log(profile)
   console.log(user_id);
   return (
