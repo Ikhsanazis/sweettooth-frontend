@@ -33,7 +33,7 @@ function NewRecipe(props) {
                 <Card.Img
                   crossOrigin="anonymous"
                   variant="top"
-                  src={`http://localhost:8000/images/${item?.image}`}
+                  src={`https://sweettooth-app.herokuapp.com/${item?.image}`}
                   // width="100px"
                   height={300}
                 />

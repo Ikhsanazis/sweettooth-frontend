@@ -14,5 +14,4 @@ function VideoStep() {
     </>
   );
 }
-
 export default VideoStep;

@@ -16,7 +16,7 @@ function Loginexample() {
   const handleLogin = () => {
     setIsLoading(true);
     axios
-      .post("http://localhost:3000/login", {
+      .post("https://sweettooth-app.herokuapp.com/login", {
         email: email,
         password: password,
       })

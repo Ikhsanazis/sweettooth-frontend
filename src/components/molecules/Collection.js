@@ -29,7 +29,7 @@ function Collection() {
 
   const getLikedRecipes = () => {
     axios
-      .get(`http://localhost:8000/likedrecipes/${user_id}`)
+      .get(`https://sweettooth-app.herokuapp.com/${user_id}`)
       .then((res) => {
         setLikedRecipe(res?.data?.data);
         setLoadLiked(false);
@@ -44,7 +44,7 @@ function Collection() {
 
   const getMyRecipes = () => {
     axios
-      .get(`http://localhost:8000/recipes/${user_id}`)
+      .get(`https://sweettooth-app.herokuapp.com/${user_id}`)
       .then((res) => {
         setMyRecipe(res?.data?.data);
         setLoadMy(false);
@@ -59,7 +59,7 @@ function Collection() {
 
   const getSavedRecipe = () => {
     axios
-      .get(`http://localhost:8000/savedrecipes/${user_id}`)
+      .get(`https://sweettooth-app.herokuapp.com/${user_id}`)
       .then((res) => {
         setSavedRecipe(res?.data?.data);
         setLoadsaved(false);

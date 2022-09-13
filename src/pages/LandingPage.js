@@ -19,7 +19,7 @@ function App() {
 
   const getPopular = () => {
     axios
-      .get("http://localhost:8000/popular")
+      .get("https://sweettooth-app.herokuapp.com/popular")
       .then((res) => {
         setPopularRecipe(res?.data?.data);
         setLoadPopular(false);

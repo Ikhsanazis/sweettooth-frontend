@@ -40,7 +40,7 @@ function App() {
 
   React.useEffect(() => {
     // console.log(recipe_id);
-    axios.get(`http://localhost:8000/recipes/${recipe_id}`).then((res) => {
+    axios.get(`https://sweettooth-app.herokuapp.com/recipes/${recipe_id}`).then((res) => {
       setData(res?.data?.data ?? []);
       setTimeout(() => {
         setIsLoading(false);
@@ -52,7 +52,7 @@ function App() {
   const getComment = () => {
     setLoadComment(true);
     axios
-      .get(`http://localhost:8000/comments/${recipe_id}`)
+      .get(`https://sweettooth-app.herokuapp.com/comments/${recipe_id}`)
       .then((res) => {
         setDataComment(res?.data?.data);
         setLoadComment(false);
@@ -65,7 +65,7 @@ function App() {
   const handleComment = () => {
     setIsLoading(true);
     axios
-      .post(`http://localhost:8000/comments/add/${user_id}/${recipe_id}`, {
+      .post(`https://sweettooth-app.herokuapp.com/comments/add/${user_id}/${recipe_id}`, {
         comment,
         user_id,
         recipe_id,
