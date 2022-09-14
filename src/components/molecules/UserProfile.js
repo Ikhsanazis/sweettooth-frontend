@@ -8,12 +8,12 @@ import { useSelector } from "react-redux";
 function UserProfile() {
   const dispatch = useDispatch();
   const { auth } = useSelector((state) => state);
-  // const decodeUser = decode(auth?.token);
+
   console.log(auth);
   const user_id = auth?.profile?.id;
   const username = auth?.profile?.username;
-  const profile = `http://localhost:8000/images/images/${auth?.profile?.image}`;
-  console.log(profile)
+  const profile = `${auth?.profile?.image}`;
+  console.log(profile);
   console.log(user_id);
   return (
     <>
@@ -23,8 +23,12 @@ function UserProfile() {
             <img
               crossOrigin="anonymous"
               className={` mt-4`}
-              style={{ backgroundSize: "cover",borderRadius:"50%" }}
-              src={profile ? profile:profpict}
+              style={{ backgroundSize: "cover", borderRadius: "50%" }}
+              src={
+                profile
+                  ? `http://localhost:8000/images/${auth?.profile?.image}`
+                  : profpict
+              }
               alt=""
               width={130}
               height={130}
