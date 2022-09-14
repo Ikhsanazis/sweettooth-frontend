@@ -12,7 +12,7 @@ function UserProfile() {
   console.log(auth);
   const user_id = auth?.profile?.id;
   const username = auth?.profile?.username;
-  const profile = `${auth?.profile?.image}`;
+  const profile = auth?.profile?.image;
   console.log(profile);
   console.log(user_id);
   return (
