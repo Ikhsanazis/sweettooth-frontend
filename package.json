@@ -24,6 +24,7 @@
     "redux-persist": "^6.0.0",
     "redux-thunk": "^2.4.1",
     "stream-browserify": "^3.0.0",
+    "sweetalert2": "^11.4.33",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
@@ -31,7 +32,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build:firebase":"npm run build && firebase deploy"
+    "build:firebase": "npm run build && firebase deploy"
   },
   "eslintConfig": {
     "extends": [

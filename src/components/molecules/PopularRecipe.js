@@ -27,18 +27,27 @@ function NewRecipe(props) {
     <>
       <Row xs={1} md={3} className="g-4 mb-5">
         {currentItems?.map((item) => (
-          <Col>
+          <Col key={item?.recipe_id}>
             <Link to={`/DetailRecipe/${item.recipe_id}`}>
               <Card>
                 <Card.Img
                   crossOrigin="anonymous"
                   variant="top"
-                  src={`http://localhost:8000/images/${item?.image}`}
-                  // width="100px"
+                  src={`https://sweettooth-app.herokuapp.com/images/${item?.image}`}
                   height={300}
                 />
                 <Card.ImgOverlay className="d-flex align-items-end">
-                  <Card.Title>{item?.name}</Card.Title>
+                  <Card.Title
+                    style={{
+                      display: "flex",
+                      justifyContent: "start",
+                      marginLeft: "-5px",
+                      color: "#fff",
+                      textShadow: "1px -1px 7px rgba(0,0,0,1)",
+                    }}
+                  >
+                    {item?.name}
+                  </Card.Title>
                 </Card.ImgOverlay>
               </Card>
             </Link>
@@ -47,19 +56,19 @@ function NewRecipe(props) {
       </Row>
       <section className="  d-flex justify-content-center text-center">
         <ReactPaginate
-          className="pagination"
+          // className="pagination"
           breakLabel=""
-          nextLabel="next >"
+          nextLabel="Next"
+          previousLabel="Prev"
           onPageChange={handlePageClick}
-          pageRangeDisplayed={6}
+          pageRangeDisplayed={5}
           pageCount={pageCount}
-          previousLabel={"< previous"} 
           renderOnZeroPageCount={null}
-          containerClassName="pagination "
-          pageLinkClassName="page-num"
-          previousLinkClassName="page-num"
-          nextLinkClassName="page-num"
-          activeLinkClassName="active"
+          containerClassName="pagination"
+          pageLinkClassName="pagelink"
+          previousLinkClassName="pagelink"
+          nextLinkClassName="pagelink"
+          activeLinkClassName="activepage"
         />
       </section>
     </>

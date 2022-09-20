@@ -2,7 +2,7 @@ import React from "react";
 import { Container, Row, Tab, Nav } from "react-bootstrap";
 import UserProfile from "../components/molecules/UserProfile";
 import Footer2 from "../components/molecules/Footer2";
-import Collection from "../components/molecules/Collection";
+import Collection from "../components/organism/Collection";
 import HomeNavbar from "../components/molecules/HomeNavbar";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -23,12 +23,10 @@ function App() {
         </Row>
         <Row className="mt-3 h-100">
           <div className="">
-            <Collection className="tabcollection"/>
+            <Collection className="tabcollection" />
           </div>
         </Row>
-        <Row>
-          <Footer2 />
-        </Row>
+        <Footer2 />
       </Container>
     </div>
   );

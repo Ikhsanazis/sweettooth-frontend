@@ -11,43 +11,45 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 // import { decode } from "jsonwebtoken";
 import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Swal from "sweetalert2";
+import Commentlist from "../components/organism/comment";
+import { Link } from "react-router-dom";
 
-function App() {
-  // const dispatch = useDispatch();
-  // const [data, setData] = React.useState([]);
-  // const router = useRouter();
-  // const { auth } = useSelector((state) => state);
-  // const decodeUser = decode(auth?.token);
-  // const user_id = decodeUser?.id;
-  // console.log(user_id);
-
+function Detailrecipe() {
   const id = useParams();
   const dispatch = useDispatch();
   const { auth } = useSelector((state) => state);
-  // const decodeUser = decode(auth?.token);
-  console.log(auth);
   const user_id = auth?.profile?.id;
-  console.log(user_id);
-  // console.log(user_id);
   const recipe_id = id?.recipe_id;
-  console.log("test", recipe_id);
-  const [isLoading, setIsLoading] = React.useState(false);
-  const [data, setData] = React.useState([]);
-  const [dataComment, setDataComment] = React.useState([]);
-  const [comment, setComment] = React.useState("");
-  const [loadComment, setLoadComment] = React.useState("");
-  // const [isLoading, setIsLoading] = React.useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [data, setData] = useState([]);
+  const [dataComment, setDataComment] = useState([]);
+  const [comment, setComment] = useState("");
+  const [loadComment, setLoadComment] = useState("");
 
-  React.useEffect(() => {
-    // console.log(recipe_id);
-    axios.get(`https://sweettooth-app.herokuapp.com/recipes/${recipe_id}`).then((res) => {
-      setData(res?.data?.data ?? []);
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 1000);
-    });
-  }, []);
-  console.log(data);
+  useEffect(() => {
+    axios
+      .get(`https://sweettooth-app.herokuapp.com/${recipe_id}`)
+      .then((res) => {
+        setData(res?.data?.data ?? []);
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 1000);
+      });
+  }, [recipe_id]);
+
+  useEffect(() => {
+    axios
+      .get(`https://sweettooth-app.herokuapp.com/comments/${recipe_id}`)
+      .then((res) => {
+        setDataComment(res?.data?.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [recipe_id]);
+  console.log("datacomment", dataComment);
 
   const getComment = () => {
     setLoadComment(true);
@@ -61,27 +63,41 @@ function App() {
         console.log(err);
       });
   };
+  console.log("datacomment", dataComment);
 
   const handleComment = () => {
     setIsLoading(true);
     axios
-      .post(`https://sweettooth-app.herokuapp.com/comments/add/${user_id}/${recipe_id}`, {
-        comment,
-        user_id,
-        recipe_id,
-      })
+      .post(
+        `https://sweettooth-app.herokuapp.com/comments/add/${user_id}/${recipe_id}`,
+        {
+          comment,
+          user_id,
+          recipe_id,
+        }
+      )
       .then((res) => {
         setIsLoading(false);
+        getComment();
+        Swal.fire({
+          icon: "success",
+          title: "Comment Added",
+          text: "success",
+        });
       })
       .catch((err) => {
         console.log(err);
+        Swal.fire({
+          icon: "warning",
+          title: "failed",
+          text: "You Need To Login",
+        });
       });
     getComment();
   };
 
-
   return (
-    <div className="App">
+    <div className="Detailrecipe">
       <Container fluid>
         <Row>
           <HomeNavbar className="navbar " />
@@ -92,41 +108,58 @@ function App() {
             <Row className="text-center">
               <HeaderText title={`${item?.name}`} />
             </Row>
-            <div className="text-center mb-3">
+            <div
+              className="text-center mb-3 "
+              style={{
+                // height: "250px",
+                // width: "250px",
+                margin: "auto",
+              }}
+            >
               <Image
                 className="mx-auto"
                 crossOrigin="anonymous"
-                src={`http://localhost:8000/images/${item?.image}`}
+                src={`https://sweettooth-app.herokuapp.com/images/${item?.image}`}
                 width="400px"
-                height="400px"
-                style={{ objectFit: "cover" }}
+                height="300px"
+                style={{ backgroundSize: "cover" }}
                 alt="image"
                 layout="responsive"
-              />{" "}
+              />
             </div>
-            <div className="header3 ">
-              <HeaderText title={"Ingredients"} />
-            </div>
-            <div className="ingredients">
-              <Row>
+            {user_id === item?.user_id ? (
+              <div className="text-center ">
+                <Link to={`/editrecipe/${recipe_id}`}>
+                  <small
+                    style={{
+                      cursor: "pointer",
+                      textDecoration: "none",
+                      color: "black",
+                      padding: "5px",
+                      borderRadius: "10px",
+                    }}
+                    className="bg-warning"
+                  >
+                    Edit Recipe
+                  </small>
+                </Link>
+              </div>
+            ) : null}
+            <h4 className="text-center">Ingredients</h4>
+            <Row className="d-flex justify-content-center  col-8 mx-auto">
+              <div className="detailingredients bg-grey">
                 <p>{item?.ingredients}</p>
-              </Row>
-              {/* <Ingredients data={data}/> */}
-            </div>
-            <div className="videostep ">
-              <Row>
-                <HeaderText title={"Video Step"} />
-              </Row>
-              <Row className=" ">
-                <Col className="d-grid gap-2 col-2 mb-5">
-                  <VideoStep data={data} />
-                </Col>
-              </Row>
-            </div>
+              </div>
+            </Row>
+            <Row className=" mt-4 col-8 mx-auto ">
+              <HeaderText title={"Video Step"} />
+              <Col className="d-grid gap-2 col-3 mb-5">
+                <VideoStep data={data} />
+              </Col>
+            </Row>
             <div className="commentsection col-8 mx-auto ">
-              {/* <Comment /> */}
               <Form
-                className="mb-3 col-12 mx-auto "
+                className="mb-3 col-8 mx-auto "
                 onSubmit={(e) => {
                   e.preventDefault();
                   handleComment();
@@ -134,13 +167,13 @@ function App() {
               >
                 <textarea
                   type="text"
-                  className="form-control form-control-lg col-4"
+                  className="form-control form-control-lg col-4 border-0 bg-grey"
                   id="inputEmail"
                   placeholder="Comment"
                   rows="6"
                   onChange={(e) => setComment(e.target.value)}
                   required
-                ></textarea>
+                />
               </Form>
               <div className="mb-3 col-6 mx-auto ">
                 <Button
@@ -153,46 +186,45 @@ function App() {
                   {isLoading ? "Sending" : "Send"}
                 </Button>
               </div>
-              <div>
-                        <h4>Comment</h4>
-                        {dataComment?.map((item) => (
-                          <div
-                            className="card"
-                            key={item?.comment_id}
-                            style={{
-                              borderRadius: "15px",
-                              padding: "10px",
-                              border: "none",
-                              boxShadow: "5px 5px 5px 5px #FAF7ED",
-                              marginBottom: "20px",
-                              cursor: "pointer",
-                            }}
-                            // key={item?.recipe_id}
-                          >
-                            <div className="row">
-                              <div className="col-3">
-                                <Image
-                                  src={`http://localhost:8000/images/${item?.image}`}
-                                  width="80px"
-                                  height="80px"
-                                  style={{ borderRadius: "50%" }}
-                                  alt="image"
-                                />
-                              </div>
-                              <div className="col-9">
-                                <div>
-                                  <h6>{item?.user_id}</h6>
-                                  <p>{item?.comment}</p>
-                                  <div
-                                    style={{ marginTop: "-10px" }}
-                                    className="d-flex gap-1 align-items-center"
-                                  ></div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        ))}
+              <section>
+                <Commentlist data={dataComment} />
+                {/* {dataComment?.map((item) => (
+                  <div
+                    className="card"
+                    key={item?.comment_id}
+                    style={{
+                      borderRadius: "15px",
+                      padding: "10px",
+                      border: "none",
+                      boxShadow: "5px 5px 5px 5px #FAF7ED",
+                      marginBottom: "20px",
+                      cursor: "pointer",
+                    }}
+                  >
+                    <div className="row">
+                      <div className="col-3">
+                        <img
+                          src={`https://sweettooth-app.herokuapp.com/images/${item?.image}`}
+                          width="80px"
+                          height="80px"
+                          style={{ borderRadius: "50%" }}
+                          alt=""
+                        />
                       </div>
+                      <div className="col-9">
+                        <div>
+                          <h6>{item?.user_id}</h6>
+                          <p>{item?.comment}</p>
+                          <div
+                            style={{ marginTop: "-10px" }}
+                            className="d-flex gap-1 align-items-center"
+                          ></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))} */}
+              </section>
             </div>
           </div>
         ))}
@@ -202,4 +234,4 @@ function App() {
   );
 }
 
-export default App;
+export default Detailrecipe;

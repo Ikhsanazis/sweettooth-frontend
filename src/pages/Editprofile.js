@@ -1,8 +1,8 @@
 import React from "react";
 import { Container, Row } from "react-bootstrap";
 import Swal from "sweetalert2";
-import FormAddRecipe from "../components/organism/FormAddRecipe";
-import Footer from "../components/molecules/Footer";
+import FormEditProfile from "../components/organism/FormEditProfile";
+import Footer2 from "../components/molecules/Footer2";
 import HomeNavbar from "../components/molecules/HomeNavbar";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
@@ -23,12 +23,10 @@ function App() {
           <HomeNavbar className="navbar" />
         </Row>
         <Row>
-          <FormAddRecipe id={id} />
+          <FormEditProfile id={id} />
         </Row>
         <Row>
-          <div className="backlayer3 ">
-            <Footer className="" />
-          </div>
+          <Footer2 className="" />
         </Row>
       </Container>
     </div>

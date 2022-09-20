@@ -6,15 +6,17 @@ import { Provider } from "react-redux";
 import { store, persistor } from "./redux/store";
 import { PersistGate } from "redux-persist/integration/react";
 
-
 // import pages
 import Register from "./pages/Register";
 // import Login from "./pages/Login";
-import Loginexample from "./pages/Loginexample";
+import Login from "./pages/Login";
 import LandingPage from "./pages/LandingPage";
 import DetailRecipe from "./pages/DetailRecipe";
 import AddRecipe from "./pages/AddRecipe";
 import Profile from "./pages/Profile";
+import Search from "./pages/Search";
+import Editprofile from "./pages/Editprofile";
+import Editrecipe from "./pages/Editrecipe";
 
 export default function App() {
   return (
@@ -23,13 +25,18 @@ export default function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/">
-              <Route path="Register" element={<Register />} />
-              {/* <Route path="Login" element={<Login />} /> */}
-              <Route path="Loginexample" element={<Loginexample />} />
-              <Route path="LandingPage" element={<LandingPage />} />
-              <Route path="DetailRecipe/:recipe_id" element={<DetailRecipe />} />
-              <Route path="AddRecipe" element={<AddRecipe />} />
-              <Route path="Profile" element={<Profile />} />
+              <Route path="register" element={<Register />} />
+              <Route path="login" element={<Login />} />
+              <Route path="/" element={<LandingPage />} />
+              <Route
+                path="detailrecipe/:recipe_id"
+                element={<DetailRecipe />}
+              />
+              <Route path="search/:keyword" element={<Search />} />
+              <Route path="Editprofile" element={<Editprofile />} />
+              <Route path="Editrecipe/:recipe_id" element={<Editrecipe />} />
+              <Route path="addrecipe" element={<AddRecipe />} />
+              <Route path="profile" element={<Profile />} />
             </Route>
           </Routes>
         </BrowserRouter>

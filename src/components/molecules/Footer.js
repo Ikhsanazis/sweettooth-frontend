@@ -10,7 +10,7 @@ function Footer() {
             <div className="mt-5 text-white d-flex flex-column justify-content-center align-items-center">
               <h3 className="">Eat, Cook, Repeat</h3>
               <p className="">Share your best recipe by uploading here !</p>
-              <small class="text-center text-white mt-5 ">
+              <small className="text-center text-white mt-5 ">
                 <a className="text-white" href="/">
                   Product
                 </a>{" "}

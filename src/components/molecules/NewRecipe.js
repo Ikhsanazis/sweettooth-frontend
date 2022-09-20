@@ -1,32 +1,56 @@
 import React from "react";
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Card, Image } from "react-bootstrap";
 import imageLanding from "../../images/homepict.png";
-
-function NewRecipe() {
+import { useEffect } from "react";
+import { useState } from "react";
+import axios from "axios";
+function NewRecipe(props) {
+  const { data } = props;
+  console.log(data);
   return (
     <>
-      <div className="search  ">
-        <Row className="col-8">
-          <Col className="searchimage">
-          <img
-              src={imageLanding}
-              className="image-landing"
-              height={400}
-              alt=""
-            />
-          </Col>
-          <Col className="col">
-            <h1 className="title">
-              NewRecipe Recipe <br />& Delicious Food
-            </h1>
-            <form className="form">
-              <input className="form-control " type="search" placeholder="Search" />
-              <button className="btn btn-outline-success " type="submit">
+      <div className="search d-flex justify-content-center  ">
+        {data.map((item) => (
+          <Row className="col-10 " key={item.recipe_id}>
+            <Col className="searchimage">
+              <Card className="col-10">
+                <Card.Img
+                  crossOrigin="anonymous"
+                  variant="top"
+                  src={`https://sweettooth-app.herokuapp.com/images/${item?.image}`}
+                  height={350}
+                  width={300}
+                />
+              </Card>
+            </Col>
+            {/* <Col className="col ">
+              <h3 className="title">{item?.name} </h3>
+              <p>Find an amazing taste from this recipe. Let's Try !</p>
+              <button
+                variant="submit"
+                className="btn btn-warning "
+                type="submit"
+              >
                 Search
               </button>
-            </form>
-          </Col>
-        </Row>
+            </Col> */}
+            <Col className="col d-flex">
+              <div className="h-100 d-flex align-items-center ">
+                <div className=" align-items-center ">
+                  <h3 className="title">{item?.name} </h3>
+                  <p>Find an amazing taste from this recipe. Let's Try !</p>
+                  <button
+                    variant="submit"
+                    className="btn btn-warning "
+                    type="submit"
+                  >
+                    Search
+                  </button>
+                </div>
+              </div>
+            </Col>
+          </Row>
+        ))}
       </div>
     </>
   );

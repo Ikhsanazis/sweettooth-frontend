@@ -23,7 +23,7 @@ function FormLogin() {
     setIsLoading(true);
     setTimeout(() => {
       axios
-        .post("http://localhost:8000/login", { email, password })
+        .post("https://sweettooth-app.herokuapp.com/login", { email, password })
         .then((respose) => {
           dispatch({
             type: Type.SET_AUTH,
@@ -49,7 +49,7 @@ function FormLogin() {
   // const handleLogin = () => {
   //   // setIsLoading(true);
   //   axios
-  //     .post("http://localhost:8000/login", {
+  //     .post("https://sweettooth-app.herokuapp.com/login", {
   //       email: email,
   //       password: password,
   //     })

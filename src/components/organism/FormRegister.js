@@ -24,7 +24,11 @@ function FormLogin() {
     setIsLoading(true);
     setTimeout(() => {
       axios
-        .post("http://localhost:8000/users/add", { username,email, password })
+        .post("https://sweettooth-app.herokuapp.com/users/add", {
+          username,
+          email,
+          password,
+        })
         .then((respose) => {
           dispatch({
             type: Type.SET_AUTH,
@@ -61,7 +65,6 @@ function FormLogin() {
                 placeholder="Enter Username"
                 onChange={(e) => setUsername(e.target.value)}
               />
-
             </Form.Group>
             <Form.Group className="mb-3 " controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>

@@ -1,7 +1,7 @@
 import React from "react";
 
 function InputText(props) {
-  const { label: labelInput, type,placeholder } = props;
+  const { label: labelInput, type, placeholder } = props;
 
   return (
     <>
@@ -11,7 +11,7 @@ function InputText(props) {
         </label>
         <input
           type={type}
-          class="form-control form-control-lg col-4"
+          className="form-control form-control-lg col-4"
           id="input"
           placeholder={placeholder}
         ></input>

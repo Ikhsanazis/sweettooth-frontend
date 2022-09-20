@@ -26,7 +26,7 @@ function UserProfile() {
               style={{ backgroundSize: "cover", borderRadius: "50%" }}
               src={
                 profile
-                  ? `http://localhost:8000/images/${auth?.profile?.image}`
+                  ? `https://sweettooth-app.herokuapp.com/images/${auth?.profile?.image}`
                   : profpict
               }
               alt=""
@@ -34,7 +34,9 @@ function UserProfile() {
               height={130}
             />
           </div>
-          <h3 className="text-center mt-3">{username}</h3>
+          <h3 className="text-center mt-3">
+            {username ? username : "Username"}
+          </h3>
         </div>
       </div>
     </>

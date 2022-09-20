@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row} from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import HomeNavbar from "../components/molecules/HomeNavbar";
 import Discover from "../components/molecules/Discover";
 import NewRecipe from "../components/molecules/NewRecipe";
@@ -12,9 +12,12 @@ import axios from "axios";
 function App() {
   const [popularRecipe, setPopularRecipe] = React.useState([]);
   const [loadPopular, setLoadPopular] = React.useState(true);
+  const [newRecipe, setNewRecipe] = React.useState([]);
+  const [loadNew, setLoadNew] = React.useState(true);
 
   useEffect(() => {
     getPopular();
+    getNewRecipe();
   }, []);
 
   const getPopular = () => {
@@ -31,6 +34,21 @@ function App() {
         setLoadPopular(false);
       });
   };
+  const getNewRecipe = () => {
+    axios
+      .get("https://sweettooth-app.herokuapp.com/latestrecipe")
+      .then((res) => {
+        setNewRecipe(res?.data?.data);
+        setLoadNew(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setLoadPopular(false);
+      });
+  };
+
   return (
     <div className="App ">
       <Container fluid>
@@ -38,23 +56,23 @@ function App() {
           <HomeNavbar className="navbar " />
           <div className="backlayer1"></div>
           <div className="discover  ">
-          <Discover className="coba " />
+            <Discover className="coba " />
           </div>
           <div className="backlayer2 "></div>
           <div className="header1  w-50">
-          <HeaderText title={"New Recipe"} />
+            <HeaderText title={"New Recipe"} />
           </div>
           <div className="newrecipe ">
-          <NewRecipe className="coba " />
+            <NewRecipe className="coba " data={newRecipe} />
           </div>
           <div className="header2 mb-5  w-50">
-          <HeaderText title={"Popular Recipe"} />
+            <HeaderText title={"Popular Recipe"} />
           </div>
           <div className="popularrecipe ">
-          <PopularRecipe data={popularRecipe}/>
+            <PopularRecipe data={popularRecipe} />
           </div>
           {/* <div class="backlayer3 "> */}
-            <Footer />
+          <Footer />
           {/* </div> */}
         </Row>
       </Container>

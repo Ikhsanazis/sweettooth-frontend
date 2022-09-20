@@ -1,5 +1,5 @@
 .backgroundlayer{
-  background-color: #EEC302;
+  background-color: #EFC81A;
   width: 50%;
   height: 100vh;
   position: absolute;
@@ -24,29 +24,29 @@
   position: absolute;
 }
 .backlayer1{
-  background-color: #EEC302;
+  background-color: #EFC81A;
   width: 30%;
   height: 800px;
   margin-left: 70%;
 }
 .backlayer2{
-  background-color: #EEC302;
+  background-color: #EFC81A;
   width: 30%;
   margin-top: 100px;
-  height: 450px;
+  height: 400px;
   display: flex;
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
   margin-right: 300px;
 }
 
 .backlayer3{
-  background-color: #EEC302;
+  background-color: #EFC81A;
   width: 100%;
   height: 400px;
 }
 .backlayer4{
-  background-color: #EEC302;
+  background-color: #EFC81A;
   width: 100%;
   height: 100px;
   margin-top: 350px;
@@ -59,20 +59,20 @@
 
 .newrecipe{
   position: absolute;
-  top: 1100px;
+  top: 1000px;
 }
 
 .header1{
   position: absolute;
   top: 800px;
   left: 50px;
-  border-left: 10px solid #EEC302 ;
+  border-left: 10px solid #EFC81A ;
 }
 
 .header2{
   margin-top: 100px;
   margin-left: 50px;
-  border-left: 10px solid #EEC302 ;
+  border-left: 10px solid #EFC81A ;
 }
 
 .menuimage{
@@ -96,11 +96,11 @@
 }
 
 .footer{
-  background-color: #EEC302;
+  background-color: #EFC81A;
   height: 400px;
 }
 .footer2{
-  background-color: #EEC302;
+  background-color: #EFC81A;
   height: 60px;
 }
 
@@ -108,8 +108,55 @@
   color:black
 }
 
-
-.tabs:hover{
+.pagination{
+  /* display: flex; */
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  gap: 8px;
+  text-decoration: none;
   color:black;
-  border-bottom: #EEC302 2px  solid ;
+}
+
+.pagelink{
+  text-decoration: none;
+  color:black;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 5px 12px;
+  background-color: #e7e0bd;
+}
+
+.activepage{
+  background-color: #f1cb21f6;
+  color: white;
+}
+
+.pagelink:hover{
+  background-color: #f1cb21f6;
+  color: white;
+}
+
+.detailingredients{
+  display: flex;
+  justify-content:center;
+}
+
+.bg-grey{
+  background-color: #F6F5F4;
+}
+
+.nav-item .nav-link:hover{
+  background-color:#F6F5F4; 
+}
+
+.nav-item .nav-link{
+  color:black ;
+}
+
+
+.nav-item .nav-link.active{
+  border-bottom: 2px solid #f1cb21f6;
 }
