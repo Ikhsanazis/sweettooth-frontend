@@ -1,42 +1,9 @@
 import React from "react";
-import { Container, Form, Button, Row, Col, Alert } from "react-bootstrap";
-import axios from "axios";
-
+import { Container, Row, Col} from "react-bootstrap";
 import FormHeader from "../components/atoms/FormHeader";
-import FormLoginexample from "../components/organism/FormLoginexample";
+import FormLogin from "../components/organism/FormLogin";
 
-function Loginexample() {
-  const [isError, setIsError] = React.useState(false);
-  const [errorMsg, setErrorMsg] = React.useState("");
-
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
-  const [isLoading, setIsLoading] = React.useState(false);
-
-  const handleLogin = () => {
-    setIsLoading(true);
-    axios
-      .post("https://sweettooth-app.herokuapp.com/login", {
-        email: email,
-        password: password,
-      })
-      .then((res) => {
-        setIsError(false);
-
-        // SET TOKEN
-        localStorage.setItem("token", res?.data?.token);
-        localStorage.setItem("user", JSON.stringify(res?.data?.user));
-        window.location.href = "/";
-      })
-      .catch((err) => {
-        setIsError(true);
-        setErrorMsg(err?.response?.data);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
-  };
-
+function Login() {
   return (
     <Container fluid className="h-100">
       <Row>
@@ -45,14 +12,11 @@ function Loginexample() {
         </Col>
         <Col className="bgright2  d-flex flex-column ">
           <div className="row rightside">
-            <Col>
-              {isError ? <Alert variant="danger">{errorMsg}</Alert> : null}
-            </Col>
-            <FormHeader 
+            <FormHeader
               title={"Welcome ! "}
               desc={"Login into your existing account"}
             />
-            <FormLoginexample />
+            <FormLogin />
           </div>
         </Col>
       </Row>
@@ -60,4 +24,4 @@ function Loginexample() {
   );
 }
 
-export default Loginexample;
+export default Login;

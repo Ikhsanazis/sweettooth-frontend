@@ -1,13 +1,11 @@
 import React from "react";
 import axios from "axios";
 import { Container, Form, Button, Row, Col, Alert } from "react-bootstrap";
-import { connect } from "react-redux";
 import * as Type from "../../redux/auth/type";
-import { useSelector, useDispatch } from "react-redux";
+import {  useDispatch } from "react-redux";
 
 function FormLogin() {
   const dispatch = useDispatch();
-  const { auth } = useSelector((state) => state);
   const [isError, setIsError] = React.useState(false);
   const [errorMsg, setErrorMsg] = React.useState("");
 

@@ -1,17 +1,13 @@
 import React from "react";
-import { Container, Row, Col, Card, Tab, Nav } from "react-bootstrap";
-import UserProfile from "../components/molecules/UserProfile";
+import { Container, Row, Col, Card } from "react-bootstrap";
 import Footer2 from "../components/molecules/Footer2";
 import HomeNavbar from "../components/molecules/HomeNavbar";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Searchbar from "../components/atoms/searchbar";
-import { AiFillStar } from "react-icons/ai";
 import ReactPaginate from "react-paginate";
 
 function App() {
@@ -104,7 +100,6 @@ function App() {
                     {currentItems.length > 8 ? (
                       <section className="  d-flex justify-content-center text-center">
                         <ReactPaginate
-                          // className="pagination"
                           breakLabel=""
                           nextLabel="Next"
                           previousLabel="Prev"

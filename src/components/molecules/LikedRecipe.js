@@ -4,14 +4,13 @@ import { useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-function NewRecipe(props) {
+
+
+function LikedRecipe(props) {
   const { id } = props;
   const [likedRecipe, setLikedRecipe] = useState([]);
   const [loadLiked, setLoadLiked] = useState(true);
-  const [myRecipe, setMyRecipe] = useState([]);
-  const [loadMy, setLoadMy] = useState(true);
-  const [savedRecipe, setSavedRecipe] = useState([]);
-  const [loadSaved, setLoadsaved] = useState(true);
+
 
   const user_id = id;
   useEffect(() => {
@@ -74,4 +73,4 @@ function NewRecipe(props) {
   );
 }
 
-export default NewRecipe;
+export default LikedRecipe;

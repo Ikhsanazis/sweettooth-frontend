@@ -1,25 +1,17 @@
 import React from "react";
-import { Container, Row } from "react-bootstrap";
 import Swal from "sweetalert2";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import axios from "axios";
-import { useParams } from "react-router-dom";
-import { useEffect } from "react";
 
 function FormAddRecipe(props) {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const { auth } = useSelector((state) => state);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-  const [image, setImage] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState({
-    isError: false,
-    errorMsg: "",
-  });
 
   const id = auth?.profile?.id;
 

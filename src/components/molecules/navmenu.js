@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Nav, NavDropdown } from "react-bootstrap";
+import { Nav, NavDropdown } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import profil from "../../images/profil.jpg";
@@ -11,7 +11,7 @@ const Navmenu = () => {
   const dispatch = useDispatch();
   const { auth } = useSelector((state) => state);
   const [isLogin, setIsLogin] = React.useState(true);
-
+  console.log(auth);
   // React.useEffect(() => {
   //   if (localStorage.getItem("token_almnk")) {
   //     setIsLogin(true);
@@ -41,10 +41,12 @@ const Navmenu = () => {
             <Link exact to="/profile">
               <Nav>
                 <img
-                  src={profil}
+                  crossOrigin="anonymous"
+                  src={`https://sweettooth-app.herokuapp.com/images/${auth?.profile?.image}`}
                   alt="profile"
                   className="photo-profile-login"
                   height={30}
+                  width={30}
                   style={{ borderRadius: "50%" }}
                 />
               </Nav>
@@ -61,19 +63,6 @@ const Navmenu = () => {
                 Logout
               </NavDropdown.Item>
             </NavDropdown>
-            {/* <Nav>
-              <Button
-                variant="danger"
-                type="submit"
-                onClick={() => {
-                  localStorage.removeItem("token_almnk");
-                  localStorage.removeItem("persist:root");
-                  window.location.href = "/";
-                }}
-              >
-                Logout
-              </Button>
-            </Nav> */}
           </>
         ) : (
           <>

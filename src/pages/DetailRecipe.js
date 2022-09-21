@@ -3,13 +3,9 @@ import { Container, Row, Col, Image, Button, Form } from "react-bootstrap";
 import HeaderText from "../components/atoms/HeaderText";
 import HomeNavbar from "../components/molecules/HomeNavbar";
 import Footer from "../components/molecules/Footer";
-import Comment from "../components/molecules/Comment";
 import VideoStep from "../components/organism/VideoStep";
-import Ingredients from "../components/molecules/Ingredients";
 import axios from "axios";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-// import { decode } from "jsonwebtoken";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
@@ -18,7 +14,7 @@ import { Link } from "react-router-dom";
 
 function Detailrecipe() {
   const id = useParams();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const { auth } = useSelector((state) => state);
   const user_id = auth?.profile?.id;
   const recipe_id = id?.recipe_id;
@@ -188,42 +184,6 @@ function Detailrecipe() {
               </div>
               <section>
                 <Commentlist data={dataComment} />
-                {/* {dataComment?.map((item) => (
-                  <div
-                    className="card"
-                    key={item?.comment_id}
-                    style={{
-                      borderRadius: "15px",
-                      padding: "10px",
-                      border: "none",
-                      boxShadow: "5px 5px 5px 5px #FAF7ED",
-                      marginBottom: "20px",
-                      cursor: "pointer",
-                    }}
-                  >
-                    <div className="row">
-                      <div className="col-3">
-                        <img
-                          src={`https://sweettooth-app.herokuapp.com/images/${item?.image}`}
-                          width="80px"
-                          height="80px"
-                          style={{ borderRadius: "50%" }}
-                          alt=""
-                        />
-                      </div>
-                      <div className="col-9">
-                        <div>
-                          <h6>{item?.user_id}</h6>
-                          <p>{item?.comment}</p>
-                          <div
-                            style={{ marginTop: "-10px" }}
-                            className="d-flex gap-1 align-items-center"
-                          ></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))} */}
               </section>
             </div>
           </div>

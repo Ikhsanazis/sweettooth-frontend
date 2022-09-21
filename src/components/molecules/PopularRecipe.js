@@ -1,7 +1,6 @@
 import React from "react";
 import { Row, Col, Card } from "react-bootstrap";
 import { useEffect } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 
@@ -56,7 +55,6 @@ function NewRecipe(props) {
       </Row>
       <section className="  d-flex justify-content-center text-center">
         <ReactPaginate
-          // className="pagination"
           breakLabel=""
           nextLabel="Next"
           previousLabel="Prev"

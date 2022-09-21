@@ -1,15 +1,11 @@
 import React from "react";
-import { Container, Row, Tab, Nav } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import UserProfile from "../components/molecules/UserProfile";
 import Footer2 from "../components/molecules/Footer2";
 import Collection from "../components/organism/Collection";
 import HomeNavbar from "../components/molecules/HomeNavbar";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-function App() {
-  const [key, setKey] = useState("home");
 
+function App() {
   return (
     <div className="App">
       <Container fluid>

@@ -1,7 +1,5 @@
 import React from "react";
-import { Row, Col } from "react-bootstrap";
 import profpict from "../../images/profil.jpg";
-import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 

@@ -1,9 +1,6 @@
 import React from "react";
-import { Row, Col, Card, Image } from "react-bootstrap";
-import imageLanding from "../../images/homepict.png";
-import { useEffect } from "react";
-import { useState } from "react";
-import axios from "axios";
+import { Row, Col, Card } from "react-bootstrap";
+
 function NewRecipe(props) {
   const { data } = props;
   console.log(data);
@@ -23,17 +20,6 @@ function NewRecipe(props) {
                 />
               </Card>
             </Col>
-            {/* <Col className="col ">
-              <h3 className="title">{item?.name} </h3>
-              <p>Find an amazing taste from this recipe. Let's Try !</p>
-              <button
-                variant="submit"
-                className="btn btn-warning "
-                type="submit"
-              >
-                Search
-              </button>
-            </Col> */}
             <Col className="col d-flex">
               <div className="h-100 d-flex align-items-center ">
                 <div className=" align-items-center ">
