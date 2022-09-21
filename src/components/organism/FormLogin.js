@@ -30,7 +30,7 @@ function FormLogin() {
               user: respose?.data?.user,
             },
           });
-          window.location.href = "/LandingPage";
+          window.location.href = "/";
         })
         .catch(({ response }) => {
           const message = response?.data?.message;
