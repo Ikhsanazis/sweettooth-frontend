@@ -8,7 +8,6 @@ import { PersistGate } from "redux-persist/integration/react";
 
 // import pages
 import Register from "./pages/Register";
-// import Login from "./pages/Login";
 import Login from "./pages/Login";
 import LandingPage from "./pages/LandingPage";
 import DetailRecipe from "./pages/DetailRecipe";
