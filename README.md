@@ -54,5 +54,18 @@ Email : mikhsanazisp@gmail.com
 
 ## License
 Distributed under the [MIT](/LICENSE) License.
+## Lampiran
 
+<p align="center" display=flex>
+
+<table>
+<tr>
+<td><image src="https://i.ibb.co/t4kWSw6/1663704512151.png" alt="home" width=500></td>
+<td><image src="https://i.ibb.co/ckXX9p2/mobile-10.png" alt="detail" width=500/></td>
+</tr>
+<tr>
+<td><image src="https://i.ibb.co/k8GC2xS/1663704550421.png" alt="add" width=500></td>
+<td><image src="https://i.ibb.co/Tbm3ChJ/1663704894411.png" alt="search" width=500/></td>
+</tr>
+</table>
 <p align="right">(<a href="#top">back to top</a>)</p>
