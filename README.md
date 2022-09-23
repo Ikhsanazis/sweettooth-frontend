@@ -60,8 +60,16 @@ Distributed under the [MIT](/LICENSE) License.
 
 <table>
 <tr>
+<td><h4 >Home</h4></td>
+<td><h4 >Detail Recipe</h4></td>
+</tr>
+<tr>
 <td><image src="https://i.ibb.co/t4kWSw6/1663704512151.png" alt="home" width=500></td>
 <td><image src="https://i.ibb.co/ckXX9p2/mobile-10.png" alt="detail" width=500/></td>
+</tr>
+<tr>
+<td><h4 >Add Recipe</h4></td>
+<td><h4 >Profile</h4></td>
 </tr>
 <tr>
 <td><image src="https://i.ibb.co/k8GC2xS/1663704550421.png" alt="add" width=500></td>
